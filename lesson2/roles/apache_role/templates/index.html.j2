@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Information(by DOCZ)</title>
+</head>
+<body>
+    <h1>System Information</h1>
+    <ul>
+        <li><strong>Hostname:</strong> {{ ansible_hostname }}</li>
+        <li><strong>IP Addresses:</strong> {{ ansible_all_ipv4_addresses[0] }}, {{ ansible_all_ipv4_addresses[1] }}</li>
+        <li><strong>CPU:</strong> {{ ansible_processor[2] }}, Cores: {{ ansible_processor_cores }}</li>
+        <li><strong>Total RAM:</strong> {{ (ansible_memtotal_mb) | float }} MB</li>
+        <li><strong>HDD Size:</strong> {{ ansible_devices.sda.partitions.sda1.size }}</li>
+    </ul>
+</body>
+</html>

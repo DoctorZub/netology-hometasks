@@ -1,0 +1,16 @@
+---
+- name: Install tuned(by Docz)
+  hosts: my
+  become: yes
+
+  tasks:
+    - name: install tuned with packege manager
+      package:
+        name: tuned
+        state: present
+
+    - name: Start tuned.service
+      service:
+        name: tuned
+        state: started
+        enabled: yes

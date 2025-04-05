@@ -1,0 +1,24 @@
+---
+- name: Download and unpack Apache Kafka(by Docz)
+  hosts: my
+  tasks:
+    - name: Ensure the target directory exists
+      ansible.builtin.file:
+        path: ~/archives/
+        state: directory
+
+    - name: Download Apache Kafka
+      get_url:
+        url: https://archive.apache.org/dist/kafka/3.6.0/kafka-3.6.0-src.tgz
+        dest: ~/archives/
+
+    - name: Extract Kafka archive
+      unarchive:
+        src: ~/archives/kafka-3.6.0-src.tgz
+        dest: ~/archives/
+        remote_src: yes
+
+    - name: Remove the downloaded archive
+      file:
+        path: ~/archives/kafka-3.6.0-src.tgz
+        state: absent

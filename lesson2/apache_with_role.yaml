@@ -1,0 +1,6 @@
+---
+- name: Install and configure Apache(by Docz)
+  hosts: my
+  become: yes
+  roles:
+    - apache_role

@@ -1,0 +1,16 @@
+---
+- name: Change system MOTD(by Docz)
+  hosts: my
+  become: yes
+
+  tasks:
+    - name: Setting motd
+      copy:
+        content: |
+
+          HELLO, {{ ansible_hostname }}!!!
+          You have IP addressess - {{ ansible_all_ipv4_addresses[0] }}, {{ ansible_all_ipv4_addresses[1] }}
+
+
+          _____Welcome to Docz's Server!!! (author - Zubkov DA)_____
+        dest: /etc/motd
