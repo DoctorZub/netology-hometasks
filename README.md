@@ -1,2 +1,2 @@
-# netology-hometasks
+# netology-projects
 Hello!
